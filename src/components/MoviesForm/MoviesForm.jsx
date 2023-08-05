@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React from "react";
 
-const Movies = () => {
-  const [query, setQuery] = useState('');
+const MoviesForm = ({query}) => {
+
 
   const handleSubmit = event => {
     event.prevenDefault();
   };
 
   const handleInput = event => {
-    setQuery(event.target.value);
+    event.target.value()
   };
   return (
     <div>
@@ -25,4 +25,4 @@ const Movies = () => {
   );
 };
 
-export default Movies;
+export default MoviesForm;

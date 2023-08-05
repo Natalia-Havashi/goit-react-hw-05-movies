@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://www.themoviedb.org/3/';
+axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 axios.defaults.params = {
-  key: '36947214-e67710a045a4cff9982bc6142',
+  api_key: '393e19defb9f3dee2fc96da932bb4d41',
 };
 export const getTrendingMivies = async () => {
   try {

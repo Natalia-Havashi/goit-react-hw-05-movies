@@ -1,3 +1,4 @@
+import MoviesList from 'components/MoviesList/MoviesList';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { getTrendingMivies } from 'servise/servise';
@@ -8,9 +9,8 @@ const Home = () => {
   useEffect(() => {
     const getTrending = async () => {
       try {
-        const data = await getTrendingMivies();
-        setTrendingFilm(data);
-        console.log(data);
+        const { results } = await getTrendingMivies();
+        setTrendingFilm(results);
       } catch (error) {
         console.log(error);
       }
@@ -20,11 +20,7 @@ const Home = () => {
 
   return (
     <div>
-      <ul>
-        {trendingFilm.map(movie => (
-          <li key={movie.id}>{movie.title}</li>
-        ))}
-      </ul>
+      <MoviesList trendingFilm={trendingFilm} />
     </div>
   );
 };

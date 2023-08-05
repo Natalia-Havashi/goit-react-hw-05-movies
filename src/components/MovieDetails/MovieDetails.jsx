@@ -1,16 +1,26 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
-const MoviesDetails = () => {
+
+const MoviesDetails = ({MoviesDetails,movieId}) => {
     return(
         <div>
+           <div> 
             <img src="" alt="" />
-            <h1>Назва фільму</h1>
+            <h2>{movieId}</h2>
+            <p>опис фільму</p>
+            <h3>Overview</h3>
+            <p>jdhfjgkvobjfhdejkfv</p>
+            <h3>Genres</h3>
             <p></p>
-            <h2>Overview</h2>
-            <p></p>
-            <h3>Genrer</h3>
-            <p></p>
+        
+        </div> 
+        <div>
+            <NavLink to='cast'>Cast</NavLink>
+            <NavLink to='revies'>Revies</NavLink>
+            </div> 
         </div>
+       
     )
 }
 
