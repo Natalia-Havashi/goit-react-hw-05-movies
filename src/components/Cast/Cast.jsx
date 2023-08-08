@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieCredits } from 'servise/servise';
+import { Actor, ActorCharacter, ActorName, CastList, Container, List } from './Cast.styled';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -18,31 +19,32 @@ const Cast = () => {
     getCast();
   }, [movieId]);
   return (
-    <div>
+    <Container>
       <h2>Cast</h2>
       {cast && cast.length > 0 ? (
-        <ul>
+        <CastList>
           {cast &&
             cast.map(actor => (
-              <li key={actor.id}>
+              <List key={actor.id}>
                 {actor.profile_path ? (
-                  <img
+                  <Actor
                     src={`https://image.tmdb.org/t/p/w185${actor.profile_path}`}
                     alt={actor.name}
                   />
                 ) : (
                   <img src="https://via.placeholder.com/185x250" alt="" />
                 )}
-
-                <p>{actor.name}</p>
-                <p>{actor.character}</p>
-              </li>
+                <div>
+                  <ActorName>{actor.name}</ActorName>
+                  <ActorCharacter>{actor.character}</ActorCharacter>
+                </div>
+              </List>
             ))}
-        </ul>
+        </CastList>
       ) : (
         <p>There is no information about the actors of the film</p>
       )}
-    </div>
+    </Container>
   );
 };
 

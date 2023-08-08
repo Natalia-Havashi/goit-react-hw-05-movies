@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Div, ListTitle, Title } from './MovieList.styled';
 const MoviesList = ({ trendingFilm }) => {
   const location = useLocation();
   return (
-    <div>
-      <h2>Trending today</h2>
+    <Div>
+      <Title>Trending today:</Title>
 
-      <ul>
+      <ListTitle>
         {trendingFilm &&
           trendingFilm.map(({ id, title }) => (
             <li key={id}>
@@ -15,8 +16,8 @@ const MoviesList = ({ trendingFilm }) => {
               </Link>
             </li>
           ))}
-      </ul>
-    </div>
+      </ListTitle>
+    </Div>
   );
 };
 

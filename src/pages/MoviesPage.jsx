@@ -9,23 +9,25 @@ const MoviesPages = () => {
   const movieQuery = searchParams.get('search') ?? '';
   const location = useLocation();
 
-  useEffect(() => {
-    !movieQuery && setSearchParams({});
-  }, [movieQuery, setSearchParams]); //чистимо рядок запиту
+
 
   useEffect(() => {
     const getSearch = async () => {
-      if (movieQuery) {
+      
         try {
           const { results } = await getSearchMovies(movieQuery);
           setMovies(results);
         } catch (error) {
           console.log(error);
         }
-      }
+      
     };
     getSearch();
-  }, [movieQuery]);
+  }, [movieQuery]); 
+  
+  useEffect(() => {
+    !movieQuery && setSearchParams({});
+  }, [movieQuery, setSearchParams]); //чистимо рядок запиту
   return (
     <div>
       <MoviesForm setSearchParams={setSearchParams} movieQuery={movieQuery} />

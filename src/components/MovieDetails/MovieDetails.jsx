@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMoviesDetails } from 'servise/servise';
+import {  MovieDetails, MovieImg, Box, Name, Overview, Details } from './MovieDetails.styled';
 
 const MoviesDetails = () => {
   const [movieDetails, setMovieDetails] = useState('');
@@ -18,27 +19,30 @@ const MoviesDetails = () => {
     getDetails();
   }, [movieId]);
   return (
-    <div>
-      <div>
-        <img
+    
+      <Box>
+        <MovieImg
           src={`https://image.tmdb.org/t/p/w300${movieDetails.poster_path}`}
           alt=""
         />
-        <h2>{movieDetails.original_title}</h2>
+        <MovieDetails>
+            <Name>{movieDetails.original_title}</Name>
 
-        <h3>Overview</h3>
-        <p>{movieDetails.overview}</p>
-        <h3>Genres</h3>
+        <Overview>Overview</Overview>
+        <Details>{movieDetails.overview}</Details>
+        <Overview>Genres</Overview>
 
-        <p>
+        <Details>
           {movieDetails.genres
             ? movieDetails.genres.map(genre => genre.name).join(',')
             : ''}
-        </p>
+        </Details>
 
-        <p>Release date: {movieDetails.release_date}</p>
-      </div>
-    </div>
+        <Details>Release date: {movieDetails.release_date}</Details>
+        </MovieDetails>
+      
+      </Box>
+    
   );
 };
 
