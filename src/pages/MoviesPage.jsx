@@ -9,22 +9,18 @@ const MoviesPages = () => {
   const movieQuery = searchParams.get('search') ?? '';
   const location = useLocation();
 
-
-
   useEffect(() => {
     const getSearch = async () => {
-      
-        try {
-          const { results } = await getSearchMovies(movieQuery);
-          setMovies(results);
-        } catch (error) {
-          console.log(error);
-        }
-      
+      try {
+        const { results } = await getSearchMovies(movieQuery);
+        setMovies(results);
+      } catch (error) {
+        console.log(error);
+      }
     };
     getSearch();
-  }, [movieQuery]); 
-  
+  }, [movieQuery]);
+
   useEffect(() => {
     !movieQuery && setSearchParams({});
   }, [movieQuery, setSearchParams]); //чистимо рядок запиту
@@ -32,7 +28,7 @@ const MoviesPages = () => {
     <div>
       <MoviesForm setSearchParams={setSearchParams} movieQuery={movieQuery} />
       <ul>
-        {movies.map(({ id, title}) => (
+        {movies.map(({ id, title }) => (
           <li key={id}>
             <Link to={`${id}`} state={{ from: location }}>
               {title}

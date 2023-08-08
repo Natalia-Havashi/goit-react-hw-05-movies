@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMoviesDetails } from 'servise/servise';
-import {  MovieDetails, MovieImg, Box, Name, Overview, Details } from './MovieDetails.styled';
+import {
+  MovieDetails,
+  MovieImg,
+  Box,
+  Name,
+  Overview,
+  Details,
+} from './MovieDetails.styled';
 
 const MoviesDetails = () => {
   const [movieDetails, setMovieDetails] = useState('');
@@ -19,14 +26,13 @@ const MoviesDetails = () => {
     getDetails();
   }, [movieId]);
   return (
-    
-      <Box>
-        <MovieImg
-          src={`https://image.tmdb.org/t/p/w300${movieDetails.poster_path}`}
-          alt=""
-        />
-        <MovieDetails>
-            <Name>{movieDetails.original_title}</Name>
+    <Box>
+      <MovieImg
+        src={`https://image.tmdb.org/t/p/w300${movieDetails.poster_path}`}
+        alt=""
+      />
+      <MovieDetails>
+        <Name>{movieDetails.original_title}</Name>
 
         <Overview>Overview</Overview>
         <Details>{movieDetails.overview}</Details>
@@ -39,10 +45,8 @@ const MoviesDetails = () => {
         </Details>
 
         <Details>Release date: {movieDetails.release_date}</Details>
-        </MovieDetails>
-      
-      </Box>
-    
+      </MovieDetails>
+    </Box>
   );
 };
 

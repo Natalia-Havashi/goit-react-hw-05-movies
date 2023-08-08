@@ -21,6 +21,8 @@ padding: 2px;
 `
 export const Actor = styled.img`
 border-radius: 4px;
+width: auto;
+height: auto;
 `
 
 export const ActorName = styled.p `

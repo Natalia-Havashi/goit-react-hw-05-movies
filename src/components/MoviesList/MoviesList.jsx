@@ -11,7 +11,7 @@ const MoviesList = ({ trendingFilm }) => {
         {trendingFilm &&
           trendingFilm.map(({ id, title }) => (
             <li key={id}>
-              <Link state={{from: location}} to={`/movies/${id}`}>
+              <Link state={{ from: location }} to={`/movies/${id}`}>
                 {title}
               </Link>
             </li>

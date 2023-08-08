@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieCredits } from 'servise/servise';
-import { Actor, ActorCharacter, ActorName, CastList, Container, List } from './Cast.styled';
+import {
+  Actor,
+  ActorCharacter,
+  ActorName,
+  CastList,
+  Container,
+  List,
+} from './Cast.styled';
 
 const Cast = () => {
   const { movieId } = useParams();
