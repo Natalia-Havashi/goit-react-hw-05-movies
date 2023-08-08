@@ -6,7 +6,6 @@ import { getTrendingMivies } from 'servise/servise';
 
 const Home = () => {
   const [trendingFilm, setTrendingFilm] = useState([]);
- 
 
   useEffect(() => {
     const getTrending = async () => {

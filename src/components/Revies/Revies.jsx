@@ -6,8 +6,6 @@ const Revies = () => {
   const [reviews, setReviews] = useState([]);
   const { movieId } = useParams();
 
-
-
   useEffect(() => {
     const getRevies = async () => {
       try {
@@ -20,8 +18,7 @@ const Revies = () => {
     getRevies();
   }, [movieId]);
 
-
- return (
+  return (
     <div>
       {reviews && reviews.length > 0 ? (
         <ul>

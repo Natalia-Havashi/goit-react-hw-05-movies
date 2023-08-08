@@ -4,7 +4,6 @@ import { getMoviesDetails } from 'servise/servise';
 
 const MoviesDetails = () => {
   const [movieDetails, setMovieDetails] = useState('');
-  console.log(movieDetails);
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -21,7 +20,10 @@ const MoviesDetails = () => {
   return (
     <div>
       <div>
-        <img src={`https://image.tmdb.org/t/p/w300${movieDetails.poster_path}`} alt="" />
+        <img
+          src={`https://image.tmdb.org/t/p/w300${movieDetails.poster_path}`}
+          alt=""
+        />
         <h2>{movieDetails.original_title}</h2>
 
         <h3>Overview</h3>

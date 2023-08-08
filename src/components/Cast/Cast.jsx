@@ -21,28 +21,27 @@ const Cast = () => {
     <div>
       <h2>Cast</h2>
       {cast && cast.length > 0 ? (
-         <ul>
-        {cast &&
-          cast.map(actor => (
-            <li key={actor.id}>
-              {actor.profile_path ? (
-                <img
-                  src={`https://image.tmdb.org/t/p/w185${actor.profile_path}`}
-                  alt={actor.name}
-                />
-              ) : (
-                <img src="https://via.placeholder.com/185x250" alt='' />
-              )}
+        <ul>
+          {cast &&
+            cast.map(actor => (
+              <li key={actor.id}>
+                {actor.profile_path ? (
+                  <img
+                    src={`https://image.tmdb.org/t/p/w185${actor.profile_path}`}
+                    alt={actor.name}
+                  />
+                ) : (
+                  <img src="https://via.placeholder.com/185x250" alt="" />
+                )}
 
-              <p>{actor.name}</p>
-              <p>{actor.character}</p>
-            </li>
-          ))}
-      </ul>
+                <p>{actor.name}</p>
+                <p>{actor.character}</p>
+              </li>
+            ))}
+        </ul>
       ) : (
         <p>There is no information about the actors of the film</p>
       )}
-     
     </div>
   );
 };
