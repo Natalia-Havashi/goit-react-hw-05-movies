@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieReviews } from 'servise/servise';
+import PropTypes from 'prop-types';
 
 const Revies = () => {
   const [reviews, setReviews] = useState([]);
@@ -36,4 +37,13 @@ const Revies = () => {
   );
 };
 
+Revies.propTypes = {
+  reviews: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
 export default Revies;

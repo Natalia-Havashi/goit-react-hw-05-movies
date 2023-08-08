@@ -1,6 +1,6 @@
 import React from 'react';
-// import { NavLink } from "react-router-dom";
 import { LinkNav, NavItem, NavList } from './Header.styled';
+import PropTypes from 'prop-types';
 
 const Header = () => {
   return (
@@ -17,4 +17,7 @@ const Header = () => {
   );
 };
 
+Header.propTypes = {
+  LinkNav: PropTypes.elementType.isRequired,
+};
 export default Header;

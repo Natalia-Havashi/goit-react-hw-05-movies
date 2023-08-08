@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMoviesDetails } from 'servise/servise';
+import PropTypes from 'prop-types';
 import {
   MovieDetails,
   MovieImg,
@@ -50,4 +51,7 @@ const MoviesDetails = () => {
   );
 };
 
+MoviesDetails.propTypes = {
+  movieId: PropTypes.string.isRequired,
+};
 export default MoviesDetails;

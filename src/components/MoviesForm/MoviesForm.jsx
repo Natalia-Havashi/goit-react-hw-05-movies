@@ -1,5 +1,6 @@
 import React from 'react';
 import { BtnInput, Form, Input } from './MoviesForm.styled';
+import PropTypes from 'prop-types';
 
 const MoviesForm = ({ setSearchParams, movieQuery }) => {
   const handleSubmit = event => {
@@ -25,5 +26,8 @@ const MoviesForm = ({ setSearchParams, movieQuery }) => {
     </div>
   );
 };
-
+MoviesForm.propTypes = {
+  setSearchParams: PropTypes.func.isRequired,
+  movieQuery: PropTypes.string.isRequired,
+};
 export default MoviesForm;
