@@ -1,10 +1,12 @@
 import MoviesList from 'components/MoviesList/MoviesList';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
+
 import { getTrendingMivies } from 'servise/servise';
 
 const Home = () => {
   const [trendingFilm, setTrendingFilm] = useState([]);
+ 
 
   useEffect(() => {
     const getTrending = async () => {

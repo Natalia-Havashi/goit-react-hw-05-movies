@@ -1,39 +1,31 @@
 import MoviesDetails from 'components/MovieDetails/MovieDetails';
-import { useEffect, useState } from 'react';
-import { NavLink, Outlet, useParams } from 'react-router-dom';
-import { getMoviesDetails } from 'servise/servise';
+import { Link, Outlet,  useLocation, useNavigate } from 'react-router-dom';
 
 const MovieDetailsPage = () => {
-  const [movieDetails, setMovieDetails] = useState('');
-  const { movieId } = useParams();
-  useEffect(() => {
-    const getDetails = async () => {
-      try {
-        const { results } = await getMoviesDetails();
-        setMovieDetails(results);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getDetails();
-  }, [movieId]);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <div>
-      <MoviesDetails movieDetails={movieDetails} />
+      <button
+        onClick={() => {
+          navigate(location.state?.from ?? '/', { replace: true });
+        }}
+      >
+        Go back
+      </button>
+      <MoviesDetails />
+      <h3>Additional informatio</h3>
       <ul>
         <li>
-            <NavLink to='/cast'>
-            Cast
-            </NavLink>
-            </li>
+          <Link state={location.state} to="cast">Cast</Link>
+        </li>
         <li>
-            <NavLink to='/revies'>
-            Revies 
-            </NavLink>
-            </li>
+          <Link state={location.state} to="reviews">Revies</Link>
+        </li>
       </ul>
-   <Outlet/>
+
+      <Outlet />
     </div>
   );
 };

@@ -1,25 +1,27 @@
-import React from "react";
+import React from 'react';
 
-const MoviesForm = ({query}) => {
-
-
+const MoviesForm = ({ setSearchParams, movieQuery, getSearch }) => {
   const handleSubmit = event => {
     event.prevenDefault();
+    getSearch(movieQuery)
+    // event.target.elements.query.value();
+    // const value = query !== '' ? {query} : {};
+    // setSearchParams(value)
   };
 
-  const handleInput = event => {
-    event.target.value()
-  };
+  const handleChange = ({ target: { value } }) => {
+    setSearchParams({ search: value });
+  }; 
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <input
-          type="text"
-          value={query}
-          onChange={handleInput}
+          type="search"
+          value={movieQuery}
+          onChange={handleChange}
           placeholder="Enter a value"
         />
-        <button>Search</button>
+        <button type="submit">Search</button>
       </form>
     </div>
   );

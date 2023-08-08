@@ -1,31 +1,42 @@
-// import React, { useEffect, useState } from "react";
-// import { useParams } from "react-router-dom";
-// import { getMovieReviews } from "servise/servise";
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { getMovieReviews } from 'servise/servise';
 
-// const Revies = () => {
-//     const {movieId} = useParams();
-//     // const [revies, setRevies] = useState('');
-//     useEffect(() => {
-//         const getRevies = async movieId => {
-//             try{
-//                 const {results} = await getMovieReviews(movieId)
-//             setRevies(results) 
-//             }catch(error) {
-//                 console.log(error)
-//             }
-           
-//         }
-//         getRevies(movieId)
-//     }, [movieId])
-//     return (
-//         <div>
-//             <h3>Cast</h3>
-//             <ul>
-//                 <li></li>
-//                 <p>Інформація про огляд фільму</p>
-//             </ul>
-//         </div>
-//    )
-// }
+const Revies = () => {
+  const [reviews, setReviews] = useState([]);
+  const { movieId } = useParams();
 
-// export default Revies;
+
+
+  useEffect(() => {
+    const getRevies = async () => {
+      try {
+        const { results } = await getMovieReviews(movieId);
+        setReviews(results);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getRevies();
+  }, [movieId]);
+
+
+ return (
+    <div>
+      {reviews && reviews.length > 0 ? (
+        <ul>
+          {reviews.map(review => (
+            <li key={review.id}>
+              <p>Author: {review.author}</p>
+              <p>{review.content}</p>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>There are no reviews yet.</p>
+      )}
+    </div>
+  );
+};
+
+export default Revies;

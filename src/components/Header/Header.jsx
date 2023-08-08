@@ -3,10 +3,18 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
     return (
-     <>
-    <NavLink to='/'>Home</NavLink>
-    <NavLink to='/movies'>Movies</NavLink>
-     </>
+     <div>
+        <ul>
+            <li>
+                <NavLink to='/'>Home</NavLink>
+            </li>
+            <li>
+              <NavLink to='/movies'>Movies</NavLink>  
+            </li>
+        </ul>
+    
+    
+     </div>
         
       
        
