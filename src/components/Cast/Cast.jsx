@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieCredits } from 'servise/servise';
@@ -55,8 +55,8 @@ const Cast = () => {
     </Container>
   );
 };
-Cast.propTypes = {
-  movieId: PropTypes.string.isRequired,
-};
+// Cast.propTypes = {
+//   movieId: PropTypes.string.isRequired,
+// };
 
 export default Cast;
