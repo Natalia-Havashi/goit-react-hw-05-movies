@@ -28,7 +28,9 @@ const MoviesDetails = () => {
   }, [movieId]);
   return (
     <Box>
-      <MovieImg
+      {movieDetails && (
+        <>
+         <MovieImg
         src={`https://image.tmdb.org/t/p/w300${movieDetails.poster_path}`}
         alt=""
       />
@@ -47,6 +49,9 @@ const MoviesDetails = () => {
 
         <Details>Release date: {movieDetails.release_date}</Details>
       </MovieDetails>
+        </>
+      )}
+     
     </Box>
   );
 };
